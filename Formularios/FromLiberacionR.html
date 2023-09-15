@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <title>ANEXO XLII. SOLICITUD DEL ESTUDIANTE PARA EL ANÁLISIS DEL COMITÉ ACADÉMICO</title>
+    <link rel="stylesheet" href="StyleFrom.css">
+    <link rel="stylesheet" href="Style2.css">
+    
+</head>
+<body class="formularios">
+
+    <div class="Encabezado">
+       
+                <a>
+           
+        <img class="Logotipo" src="logo.jpg">
+           
+                </a>
+    
+            <h1>ANEXO XXXIII.FORMATO DE LIBERACIÓN DE PROYECTO PARA LA TITULACIÓN INTEGRAL</h1>
+        
+     </div>
+
+    
+
+    <form  action="conexion.php" id="Formulario_Liberacion_Residencia" class="campos_registro" accept-charset="utf-8" method="post"><!--problemas al intentar ejecutar código php-->
+
+      <h2>Para asegurarnos de que procesemos su solicitud de manera oportuna y precisa, es importante que proporcione información completa y exacta en el formulario.   </h2>  
+
+     <input class="controls" type="text" name="Nombres" id="nombres" placeholder="Nombre Completo del Alumno" required onchange="comprobarCampoNombre()">   
+     <input class="controls" type="number" name="N_Control" id="n_control" placeholder="Numero de control" required onblur="comprobarCampoN_Control()">
+     <input class="controls" type="text" name="Periodo" id="periodo" placeholder="Periodo en el que cursaste la residencia" required onchange="comprobarCampoPeriodo()">
+     <input class="controls" type="text" name="Nom_Proyect" id="nom_proyect" placeholder="Nombre del proyecto:" required onchange="comprobarCampoNom_Proyect()">   
+     <input class="controls" type="text" name="Nom_Empresa" id="nom_empresa" placeholder="Nombre de la Empresa" required onchange="comprobarCampoNom_Empresa()">
+     <input class="controls" type="text" name="AsesorInt" id="asesorint" placeholder="Nombre del Docente que fue tu asesor interno:" required onchange="comprobarCampoAsesorInt()">
+     <input class="controls" type="text" name="PrimerDoc" id="primerdoc" placeholder="Nombre del primer docente que participo como tu sinodal en la presentación de su residencia" required onblur="comprobarCampoPrimerDoc()">                      
+     <input class="controls" type="text" name="SegunDoc" id="segundoc" placeholder="Nombre del segundo docente que participo como tu sinodal en la presentación de su residencia:" required onchange="comprobarCampoSegunDoc()">   
+     <input class="controls" type="number" name="Calificacion" id="calificacion" placeholder="Calificación que obtuviste" required onchange="comprobarCampoCalificacion()">   
+     <input class="controls" type="text" name="Observaciones" id="observaciones" placeholder="Observación adicional" required onchange="comprobarCampoObservaciones()">   
+     <label for="evidencias">Evidencias de haber acreditado la residencia, carta de liberación, informe final de residencias, kardex, etc:</label>
+     <input class="controls" type="file" name="Evidencias" id="evidencias" accept=".pdf, .doc, .docx" required onchange="comprobarCampoEvidencias()">
+
+     <script>
+
+        let configuracionPag = JSON.parse(localStorage.getItem('configuracionPag'));
+
+        
+
+
+     </script>    
+     <p></p>
+     <button class="botons" type="submit"  name="Generar Constancia">Generar Constancia</button>
+        
+    </form>    
+
+
+    <script src="FromLiberacionR.js"></script>
+</body>
+</html>

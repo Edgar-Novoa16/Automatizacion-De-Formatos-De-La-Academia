@@ -1,0 +1,137 @@
+html
+    {
+        font-size: 62.5%;
+    }
+
+    body
+    {
+
+        font-size: 1.6rem;
+        
+    }
+
+    h2
+    {
+
+        font-size: 3rem;    
+        font-family: 'Kalam', cursive;
+        text-transform: uppercase;
+        /*font-family: fantasy;*/
+        color: whitesmoke;
+    }
+
+    .ss
+    {
+
+        color: #365b77;
+
+    }
+
+    h4
+    {
+
+        font-size: 2rem;
+        font-family: 'Kalam', cursive;
+        /*font-family: 'Roboto', sans-serif;*/
+        color: black;
+
+    }
+
+
+
+
+    p
+    {
+
+        font-size: 2rem;
+        font-family: 'Open Sans Condensed', sans-serif;
+        font-weight: bold;   
+
+    }
+
+
+
+    
+
+    .Logotipo
+    {
+
+        height: 10rem;
+        width: 10rem;
+        padding-left: 1rem;
+        align-items: flex-end;
+
+
+    }
+
+
+
+   
+
+.campos_registro
+{
+
+    width: 100rem;
+    background: #3c243cea;
+    padding: 3rem;
+    margin: auto;
+    margin-top: 10rem;
+    border-radius: .4rem;
+    box-shadow: .7rem 1.3rem 3.7rem #000;
+    
+}
+
+.campos_registro h2
+{
+
+    font-size: 2.2rem;
+    margin-bottom: 2rem;
+    
+}
+
+.controls
+{
+
+    width: 100%;
+    background: #24303c;
+    padding: 1rem;
+    border-radius: .4rem;
+    margin-bottom: 1.6rem;
+    border: .1rem solid #1f53c5;
+    font-size: 1.8rem;
+    color: whitesmoke;
+    
+
+}
+
+.campos_registro .botons
+{
+
+    width: 100%;
+    background: #1f53c5;
+    border: none;
+    padding: 1.2rem;
+    color: whitesmoke;
+    margin: 1.6rem 0;
+    font-family: 'Bebas Neue', cursive;
+    font-size: 1.6rem;
+
+}
+
+.campos_registro .botons:hover
+{
+
+    color: black;
+    cursor: pointer;
+
+}
+
+
+
+label {
+    color: black;         /* Cambia el color del texto a negro */
+    font-family: 'Kalam', cursive;
+    font-size: 25px;      /* Establece el tamaño de fuente a 12 puntos */
+}
+
+

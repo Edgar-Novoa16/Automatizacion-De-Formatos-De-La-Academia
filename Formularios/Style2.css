@@ -1,0 +1,341 @@
+
+
+ html {
+    line-height: 1.15; /* 1 */
+    -webkit-text-size-adjust: 100%; /* 2 */
+  }
+  
+  
+  
+  body {
+    margin: 0;
+  }
+  
+ 
+  
+  main {
+    display: block;
+  }
+  
+  
+  
+  h1 {
+    font-size: 2em;
+    margin: 0.67em 0;
+  }
+  
+ 
+  
+  hr {
+    box-sizing: content-box; /* 1 */
+    height: 0; /* 1 */
+    overflow: visible; /* 2 */
+  }
+  
+ 
+  
+  pre {
+    font-family: monospace, monospace; /* 1 */
+    font-size: 1em; /* 2 */
+  }
+  
+  
+  
+  a {
+    background-color: transparent;
+  }
+  
+  
+  abbr[title] {
+    border-bottom: none; /* 1 */
+    text-decoration: underline; /* 2 */
+    text-decoration: underline dotted; /* 2 */
+  }
+  
+  
+  
+  b,
+  strong {
+    font-weight: bolder;
+  }
+  
+  
+  
+  code,
+  kbd,
+  samp {
+    font-family: monospace, monospace; /* 1 */
+    font-size: 1em; /* 2 */
+  }
+  
+  
+  
+  small {
+    font-size: 80%;
+  }
+  
+  
+  
+  sub,
+  sup {
+    font-size: 75%;
+    line-height: 0;
+    position: relative;
+    vertical-align: baseline;
+  }
+  
+  sub {
+    bottom: -0.25em;
+  }
+  
+  sup {
+    top: -0.5em;
+  }
+  
+
+  
+  img {
+    border-style: none;
+  }
+  
+ 
+  
+  button,
+  input,
+  optgroup,
+  select,
+  textarea {
+    font-family: inherit; /* 1 */
+    font-size: 100%; /* 1 */
+    line-height: 1.15; /* 1 */
+    margin: 0; /* 2 */
+  }
+  
+  
+  button,
+  input { /* 1 */
+    overflow: visible;
+  }
+  
+  
+  
+  button,
+  select { /* 1 */
+    text-transform: none;
+  }
+  
+  
+  
+  button::-moz-focus-inner,
+  [type="button"]::-moz-focus-inner,
+  [type="reset"]::-moz-focus-inner,
+  [type="submit"]::-moz-focus-inner {
+    border-style: none;
+    padding: 0;
+  }
+  
+  
+  
+  fieldset {
+    padding: 0.35em 0.75em 0.625em;
+  }
+  
+  
+  legend {
+    box-sizing: border-box; /* 1 */
+    color: inherit; /* 2 */
+    display: table; /* 1 */
+    max-width: 100%; /* 1 */
+    padding: 0; /* 3 */
+    white-space: normal; /* 1 */
+  }
+  
+ 
+  
+  progress {
+    vertical-align: baseline;
+  }
+  
+  
+  
+  textarea {
+    overflow: auto;
+  }
+
+  
+  
+  [type="checkbox"],
+  [type="radio"] {
+    box-sizing: border-box; /* 1 */
+    padding: 0; /* 2 */
+  }
+  
+  
+  
+  [type="number"]::-webkit-inner-spin-button,
+  [type="number"]::-webkit-outer-spin-button {
+    height: auto;
+  }
+  
+  
+  
+  [type="search"]::-webkit-search-decoration {
+    -webkit-appearance: none;
+  }
+  
+  
+  
+  ::-webkit-file-upload-button {
+    -webkit-appearance: button; /* 1 */
+    font: inherit; /* 2 */
+  }
+  
+  
+  
+  details {
+    display: block;
+  }
+  
+ 
+  
+  summary {
+    display: list-item;
+  }
+  
+  
+  
+  template {
+    display: none;
+  }
+  
+  
+  
+  [hidden] {
+    display: none;
+  }
+
+
+
+  .Formularios
+{
+
+   
+    background-position: center center;
+    background-size: cover;
+    
+}
+
+
+.Encabezado
+{
+    background-color: black;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-basis: calc(50% - 1rem);
+}
+
+
+/* Establece el color del texto del h1 en blanco */
+/* Establece la fuente y el tamaño del texto del h1 */
+div.Encabezado h1 {
+    font-family: Arial, sans-serif; /* Utiliza la fuente Arial, y luego fuentes genéricas en caso de que Arial no esté disponible */
+    font-size: 25px; /* Establece el tamaño de fuente en 25 píxeles */
+    color: white; /* Establece el color del texto en blanco */
+}
+
+
+
+.volver
+{
+
+    text-decoration: none;
+    width: 8rem;
+    height: 3rem;
+    font-family: 'Bebas Neue', cursive;
+    font-size: 3rem;
+    color: whitesmoke;
+    border: .1rem solid #20e2d7;
+    transition: all 750ms ease;
+    margin-left: -5rem;
+    display: flex;
+    justify-content: center;
+
+}
+
+
+.diselect
+{
+
+    background-color: #3c243cea;
+    max-width: 60rem;
+    max-height: 70rem;
+    text-align: center;
+    margin: 15rem auto auto 52rem;
+    border: .3rem solid whitesmoke;
+    box-shadow: 1rem .6rem .4rem #343a3d;
+    
+}
+
+.diselect img {
+    width: 300px; /* Define el ancho deseado, por ejemplo, 200 píxeles */
+    height: 250px; /* Autoajusta la altura proporcionalmente al ancho */
+}
+
+
+.Formularios img
+{
+
+    margin: 2rem 2rem 2rem 2rem;
+
+
+}
+.Formularios h1
+{
+    text-transform: uppercase;
+    font-family: 'Fjalla One', sans-serif;
+    font-size: 3rem;
+    color: whitesmoke;
+    margin-left: -9rem;
+}
+
+.Formularios h3
+{
+
+    text-transform: uppercase;
+    font-family: 'Fjalla One', sans-serif;
+    color: whitesmoke;
+    font-size: 2rem;
+
+}
+
+
+
+
+.Formularios a
+{
+
+    text-decoration: none;
+    font-family: 'Bebas Neue', cursive;
+    font-size: 3rem;
+    color: whitesmoke;
+    border: .1rem solid #20e2d7;
+    transition: all 750ms ease;
+    display: flex;
+    justify-content: center;
+}
+
+
+.Formularios a:hover
+{
+
+    
+    box-shadow: 0 0 1rem #20e2d7, 0 0 2rem #20e2d7, 0 0 2rem #20e2d7;
+    background-color: #20e2d7;
+    cursor: pointer;
+
+
+}
+
+
+
