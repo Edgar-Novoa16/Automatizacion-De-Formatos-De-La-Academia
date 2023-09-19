@@ -1,7 +1,7 @@
 <?php
 // Conexión a la base de datos (ajusta los valores según tu configuración)
 $servername = "localhost";
-$port = 3306;
+
 $username = "root";
 $password = "12345678";
 $database = "automatizacion_de_formatos_de_la_academia";
