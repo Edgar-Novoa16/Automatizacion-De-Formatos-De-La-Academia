@@ -24,29 +24,25 @@
         
      </div>
 
-     <form  action="Conexion.php" id="Formulario_Carta_Comite" class="campos_registro" accept-charset="utf-8" method="post"><!--problemas al intentar ejecutar código php-->
+     <form action="ConexionComite.php" id="Formulario_Carta_Comite" class="campos_registro" accept-charset="utf-8" method="post">
+
 
         <h2>Para poder procesar su solicitud correctamente, por favor llene el formulario con la información correcta. Al finalizar, recibirá una constancia que deberá imprimir y firmar. Esta constancia deberá ser entregada personalmente junto con la documentación requerida al jefe de carrera, como el kardex, comprobante médico, entre otros,
            según el motivo de su solicitud. Gracias por su colaboración.</h2>  
   
-       <input class="controls" type="text" name="Nombres" id="nombres" placeholder="Nombre Completo del Alumno" required onchange="comprobarCampoNombre()">   
+       <input class="controls" type="text" name="Nombre" id="nombre" placeholder="Nombre Completo del Alumno" required onchange="comprobarCampoNombre()">   
        <input class="controls" type="text" name="Asunto" id="asunto" placeholder="Asunto" required onchange="comprobarCampoAsunto()">
        <input class="controls" type="number" name="N_Telefono" id="n_telefono" placeholder="N_Telefono" required onchange="comprobarCampoN_Telefono()">   
        <input class="controls" type="number" name="Semestre" id="semestre" placeholder="Semestre" required>
        <input class="controls" type="text" name="Correo_Electrónico" id="correo electrónico" placeholder="Correo Electrónico" required onchange="comprobarCampoCorreoElectronico()">
        <input class="controls" type="number" name="N_Control" id="n_control" placeholder="Numero de control" required onblur="comprobarCampoN_Control()">
-       <input class="controls" type="text" name="Solicito_de_la_manera_mas_atenta" id="solicito_de_la_manera_mas_atenta" placeholder="Solicito de la manera mas atenta" required onblur="comprobarCampoSolicito_de_la_manera_mas_atenta()">                      
+       <input class="controls" type="text" name="Solicito" id="solicito" placeholder="Solicito de la manera mas atenta" required onblur="comprobarCampoSolicito_de_la_manera_mas_atenta()">                      
        <input class="controls" type="text" name="Motivo" id="motivo" placeholder="Motivo" required onchange="comprobarCampoMotivo()">   
        <input class="controls" type="text" name="Razon" id="razon" placeholder="Explica bien cual es la razon" required onchange="comprobarCampoRazon()">   
        
-       <script>
-  
-          let configuracionPag = JSON.parse(localStorage.getItem('configuracionPag'));
-  
-          
-  
-  
-       </script>    
+       
+
+     
        <p></p>
        <button class="botons" type="submit"  name="Generar Constancia">Generar Constancia</button>
           
