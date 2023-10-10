@@ -267,13 +267,13 @@ div.Encabezado h1 {
 .diselect
 {
 
-    background-color: #3c243cea;
+    background-color: #320b5f;
     max-width: 60rem;
     max-height: 70rem;
     text-align: center;
     margin: 15rem auto auto 52rem;
     border: .3rem solid whitesmoke;
-    box-shadow: 1rem .6rem .4rem #343a3d;
+    box-shadow: 1rem .6rem .4rem #320b5f;
     
 }
 
@@ -319,7 +319,7 @@ div.Encabezado h1 {
     font-family: 'Bebas Neue', cursive;
     font-size: 3rem;
     color: whitesmoke;
-    border: .1rem solid #20e2d7;
+    border: .1rem solid #939797;
     transition: all 750ms ease;
     display: flex;
     justify-content: center;
@@ -330,8 +330,8 @@ div.Encabezado h1 {
 {
 
     
-    box-shadow: 0 0 1rem #20e2d7, 0 0 2rem #20e2d7, 0 0 2rem #20e2d7;
-    background-color: #20e2d7;
+    box-shadow: 0 0 1rem #f2f7f6, 0 0 2rem #20e2d7, 0 0 2rem #8420e2;
+    background-color: #8420e2;
     cursor: pointer;
 
 
