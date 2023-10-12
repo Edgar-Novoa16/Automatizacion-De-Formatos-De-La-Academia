@@ -5,6 +5,17 @@ require 'vendor/autoload.php'; // Carga el autoloader de Composer
 use PhpOffice\PhpWord\TemplateProcessor;
 
 function descargaComite($nombre, $asunto, $n_telefono, $semestre, $correo_electronico, $n_control, $solicito, $motivo, $razon) {
+   
+    echo "Nombre: " . $nombre . "<br>";
+    echo "Asunto: " . $asunto . "<br>";
+    echo "Teléfono: " . $n_telefono . "<br>";
+    echo "Semestre: " . $semestre . "<br>";
+    echo "Correo Electrónico: " . $correo_electronico . "<br>";
+    echo "Número de Control: " . $n_control . "<br>";
+    echo "Solicitó: " . $solicito . "<br>";
+    echo "Motivo: " . $motivo . "<br>";
+    echo "Razón: " . $razon . "<br>";
+    
     // Ruta de la plantilla del documento .docx
     $plantilla = 'ANEXO XLII. SOLICITUD COMITE.docx';
 

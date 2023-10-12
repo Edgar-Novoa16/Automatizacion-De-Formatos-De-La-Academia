@@ -31,30 +31,35 @@ if ($resultado->num_rows > 0) {
         $mensaje = "Error al insertar datos: " . $conn->error;
     }
 }
-
-
 ?>
-
 
 <!DOCTYPE html>
 <html lang="es">
 <body>
     <script>
-        // Función para mostrar el mensaje emergente y volver a la página anterior
+        // Función para mostrar el mensaje emergente y redirigir después de un tiempo
         function mostrarMensaje(mensaje) {
             alert(mensaje);
-            window.history.back();
-           /* if (confirm("¿Deseas descargar el documento generado?")) {
+
+            // Redirigir a FormularioCartaComite.html inmediatamente si el número de control ya existe
+            if (mensaje.includes("ya existe en la base de datos")) {
+                window.history.back();
+            } else if (confirm("¿Deseas descargar el documento generado?")) {
                 // Iniciar la descarga del archivo
                 window.location.href = "DescargaComite.php";
+
+                // Esperar 2 segundos (2000 milisegundos) antes de redirigir a FormularioCartaComite.html
+                setTimeout(function() {
+                    window.location.href = "FormularioCartaComite.html";
+                }, 2000);
             } else {
-            // Regresa a la página anterior en el historial del navegador
-          
-        }*/
-    }
-        // Llama a la función para mostrar el mensaje
+                // Si el usuario cancela la descarga, redirigir inmediatamente a FormularioCartaComite.html
+                window.location.href = "FormularioCartaComite.html";
+            }
+        }
+
+        // Llamar a la función para mostrar el mensaje
         mostrarMensaje("<?php echo $mensaje; ?>");
     </script>
 </body>
 </html>
-
