@@ -34,6 +34,8 @@ body {
   user-select: none;
 }
 
+
+
 @media (min-width: 768px) {
   .bd-placeholder-img-lg {
     font-size: 3.5rem;
@@ -144,30 +146,44 @@ body {
 .Logotipo {
   height: 7rem;
   width: 9rem;
-  padding-left: 0rem;
+  position: absolute;
+  top: 0;
+  left: 0;
   
   
 }
-.Logotipo {
-  height: 7rem;
-  width: 9rem;
-  
-}
+
 
 
 
 .Encabezado
 {
+   padding-top: 75px; 
     background-color: rgb(48, 16, 107);
     display: flex;
     align-items: center;
-    justify-content: space-evenly;
     flex-basis: calc(50% - 1rem);
-}
+    flex-direction: column;
+    justify-content: center; /* Centra verticalmente */
+    
+
+  }
 
 h1 {
+      margin-top: 2px; /* Espaciado superior para separar la imagen del título */
+
     color: #d9dcdf; /* Cambia el color del texto a azul (#007bff) */
     font-size: 24px; /* Cambia el tamaño de la fuente a 24px */
     
 }
+/* Estilo personalizado para la clase .col-auto */
+.Inicio {
+  background-image: url("../img/fondo.png");
+  height: 100vh;
+  background-size: 1280px 640px; /* Ancho: 200px, Alto: 150px */
+  min-height: 20rem;
+  background-repeat: no-repeat; /* Evita la repetición de la imagen */
+}
 
+
+@import "../assets/dist/css/bootstrap.min.css";

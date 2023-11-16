@@ -3,10 +3,7 @@
   <head><script src="../assets/js/color-modes.js"></script>
 
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
-    <meta name="generator" content="Hugo 0.118.2">
+    
     <title>ANEXO XLII. SOLICITUD DEL ESTUDIANTE PARA EL ANÁLISIS DEL COMITÉ ACADÉMICO</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/sign-in/">
@@ -36,7 +33,7 @@
     
     <link href="../estilos/Formulario.css" rel="stylesheet">
   
-    
+    <p></p><p></p>
 <main class="form-signin w-100 m-auto">
 
   
@@ -48,48 +45,68 @@
     
 
     <div class="form-floating">
-      <input  class="form-control" type="text" name="Nombre" id="nombre" placeholder required>
-      <label for="floatingInput">Nombre Completo del Alumno</label>
-    </div>
+      <input  class="form-control" type="text" name="Apellido_Paterno" id="apellido_paterno" placeholder required>
+      <label for="floatingInput">Apellido Paterno</label>
+    </div><p></p>
     <div class="form-floating">
-        <select  class="form-control" type="text" name="Asunto" id="asunto" required>
-        <option value="un-semestre">Un semestre más para terminar mi carrera</option>
-        <option value="recursar">Recursar materias en especial</option>
+      <input  class="form-control" type="text" name="Apellido_Materno" id="apellido_materno" placeholder required>
+      <label for="floatingInput">Apellido Materno</label>
+    </div><p></p>
+  <div class="form-floating">
+    <input  class="form-control" type="text" name="Nombre" id="nombre" placeholder required>
+    <label for="floatingInput">Nombre</label>
+  </div><p></p>
+    <div class="form-floating">
+      <select class="form-control" name="Asunto" id="asunto" placeholder required>
+          <option value="Un semestre más para terminar mi carrera">Un semestre mas para terminar mi carrera</option>
+          <option value="Recursar materias en especial">Recursar materias en especial</option>
+          <option value="Otro">Otro</option>
         </select>
-        <label for="floatingInput">Asunto</label>
+      <label for="asunto">Asunto</label>
       </div>
+<input type="text" class="form-control" name="OtroAsunto" id="otroasunto" style="display:none;" placeholder="Escribe el Asunto">
+  <script>
+    document.getElementById("asunto").addEventListener("change", function() {
+        var otroasuntoInput = document.getElementById("otroasunto");
+        if (this.value === "Otro") {
+            otroasuntoInput.style.display = "block";
+            otroasuntoInput.setAttribute("required", "true"); // Agregar el atributo 'required' si es necesario
+        } 
+    });
+</script>
+<p></p>
     <div class="form-floating">
       <input  class="form-control" type="number" name="N_Telefono" id="n_telefono" placeholder  required min="0">
       <label for="floatingInput">Telefono</label>
-    </div>
+    </div><p></p>
     <div class="form-floating">
       <input class="form-control" type="number" name="Semestre" id="semestre" placeholder="Semestre" required min="1" max="12" pattern="[1-9]|1[0-2]">
       <label for="semestre">Semestre</label>
-  </div>  
+  </div>  <p></p>
     <div class="form-floating">
       <input class="form-control" type="email" name="Correo_Electronico" id="correo_electronico" placeholder="name@example.com" required>
       <label for="floatingInput">Correo Electronico</label>
-    </div>
+    </div><p></p>
     <div class="form-floating">
       <input class="form-control" type="number" name="N_Control" id="n_control"  placeholder  required min="0">
-      <label for="n_control">Número de Control</label>
-  </div>
+      <label for="n_control">Numero de Control</label>
+  </div><p></p>
   
     <div class="form-floating">
       <input  class="form-control" type="text" name="Solicito" id="solicito" placeholder required>
-      <label for="floatingInput">Solicito de la manera mas atenta</label>
-    </div>
+      <label  for="floatingInput">Solicito de la manera mas atenta</label>
+    </div><p></p>
     <div class="form-floating">
-      <select  class="form-control" type="text" name="Motivo" id="motivo" required>
-      <option value="un-semestre">Academico</option>
-      <option value="recursar">Personal</option>
+      <select class="form-control" name="Motivo" id="motivo" placeholder required>
+          <option value="Academico">Academico</option>
+          <option value="Personal">Personal</option>
       </select>
-      <label for="floatingInput">Motivo</label>
-    </div>
+      <label for="motivo">Motivo</label>
+  </div><p></p>
     <div class="form-floating">
       <input  class="form-control"  type="text" name="Razon" id="razon" placeholder required>
       <label for="floatingInput">Explica bien cual es la razon</label>
-    </div>
+    </div><p></p>
     <div class="d-flex justify-content-center align-items-center mt-3 position-relative"> <!-- Agrega las clases para centrar -->
       <button class="btn btn-primary py-2 ancho-personalizado position-absolute">Generar Constancia</button>
   </div>

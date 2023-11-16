@@ -1,5 +1,5 @@
 <?php
-function conexionbd() {
+
     $servername = "localhost";
     $username = "root";
     $password = "12345678";
@@ -15,6 +15,6 @@ function conexionbd() {
 
     // Devolver el objeto de conexión
     return $conn;
-}
+
 
 ?>

@@ -4,9 +4,10 @@
 
 .Inicio {
     background-image: url("../img/fondo.png");
-    background-size: 80%; /* Ajusta el tamaño de la imagen al 120% del área del encabezado */
     height: 100vh;
-    min-height: 60rem;
+    background-size: 1280px 640px; /* Ancho: 200px, Alto: 150px */
+    min-height: 20rem;
+    background-repeat: no-repeat; /* Evita la repetición de la imagen */
 }
 
 

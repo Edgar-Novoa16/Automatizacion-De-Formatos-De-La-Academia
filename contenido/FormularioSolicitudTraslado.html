@@ -1,0 +1,147 @@
+
+<!doctype html>
+<html lang="en" data-bs-theme="auto">
+  <head><script src="../assets/js/color-modes.js"></script>
+
+    <meta charset="utf-8">
+   
+    <title>ANEXO XLII. SOLICITUD DE TRASLADO</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/sign-in/">
+
+    <script src="../conexiones/ConexionTraslado.php"></script>
+
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
+
+<link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
+
+</head>
+
+<body >
+
+ 
+
+    <div class="Encabezado">
+       
+                <a>
+           
+        <img class="Logotipo" src="../img/logo.jpg">
+           
+                </a>
+            <h1>ANEXO XLII. SOLICITUD DE TRASLADO</h1>
+     </div>
+    
+    <link href="../estilos/Formulario.css" rel="stylesheet">
+  
+    <p><p><p></p>
+<main class="form-signin w-100 m-auto">
+
+  
+    <form action="../conexiones/ConexionTraslado.php" id="Formulario_Solicitud_Traslado" class="campos_registro" accept-charset="utf-8" method="post">
+  
+      <h1 style="color: #0a0707; font-size: 20px;">
+        Para asegurarnos de que procesemos su solicitud de manera oportuna y precisa, es importante que proporcione información completa y exacta en el formulario.
+        Tendrás que dirigirte con el jefe de carrera
+    </h1>
+    
+    <div class="form-floating">
+        <input class="form-control" type="number" name="N_Control" id="n_control"  placeholder  required min="0">
+        <label for="n_control">Numero de Control</label>
+    </div><p></p>
+      <div class="form-floating">
+        <input  class="form-control" type="text" name="Apellido_Paterno" id="apellido_paterno" placeholder required>
+        <label for="floatingInput">Apellido Paterno</label>
+      </div><p></p>
+      <div class="form-floating">
+        <input  class="form-control" type="text" name="Apellido_Materno" id="apellido_materno" placeholder required>
+        <label for="floatingInput">Apellido Materno</label>
+      </div><p></p>
+    <div class="form-floating">
+      <input  class="form-control" type="text" name="Nombre" id="nombre" placeholder required>
+      <label for="floatingInput">Nombre</label>
+    </div><p></p>
+  
+  <div class="form-floating">
+    <select class="form-control" name="Semestre" id="semestre" placeholder required>
+        <option value="Primer Semestre">Primer Semestre</option>
+        <option value="Segundo Semestre">Segundo Semestre</option>
+        <option value="Tercer Semestre">Tercer Semestre</option>
+        <option value="Cuarto Semestre">Cuarto Semestre</option>
+        <option value="Quinto Semestre">Quinto Semestre</option>
+        <option value="Sexto Semestre">Sexto Semestre</option>
+        <option value="Septimo Semestre">Septimo Semestre</option>
+        <option value="Octavo Semestre">Octavo Semestre</option>
+        <option value="Noveno Semestre">Noveno Semestre</option>
+        <option value="Decimo Semestre">Decimo Semestre</option>
+        <option value="Otro">Otro</option>
+    </select>
+    <label for="semestre">Semestre</label>
+</div>
+<input type="text" class="form-control" name="OtroSemestre" id="otrosemestre" style="display:none;" placeholder="Escribe tu semestre">
+  <script>
+    document.getElementById("semestre").addEventListener("change", function() {
+        var otroSemestreInput = document.getElementById("otrosemestre");
+        if (this.value === "Otro") {
+            otroSemestreInput.style.display = "block";
+            otroSemestreInput.setAttribute("required", "true"); // Agregar el atributo 'required' si es necesario
+        }
+    });
+</script>
+<p></p>
+<div class="form-floating">
+    <select class="form-control" name="Carrera" id="carrera" placeholder required>
+        <option value="Ingenieria en Sistemas Computacionales">Ingenieria en Sistemas Computacionales</option>
+        <option value="Ingeniería Industrial">Ingeniería Industrial</option>
+        <option value="Ingenieria Electronica">Ingenieria Electronica</option>
+        <option value="Ingeniería Electromecánica">Ingeniería Electromecánica</option>
+        <option value="Ingeniería Civil">Ingeniería Civil</option>
+        <option value="Gastronomia">Gastronomia</option>
+        <option value="Gestión Empresarial">Gestión Empresarial</option>
+        
+    </select>
+    <label for="carrera">Carrera</label>
+</div><p></p>
+<div class="form-floating">
+    <select class="form-control" name="Plan_Estudio" id="plan_estudio" placeholder required>
+        <option value="ISIC-2010-224">ISIC-2010-224</option>
+        <option value="ISIC-2010-208">ISIC-2010-208</option>
+        <option value="ISIC-2010-227">ISIC-2010-227</option>
+        <option value="IGEM-2009-201">IGEM-2009-201</option>
+        <option value="IELC-2010-211">IELC-2010-211</option>
+        <option value="IEME-2010-210">IEME-2010-210</option>
+        <option value="GAST-2010-215">GAST-2010-215</option>
+    </select>
+    <label for="pan de estudio">Pan de Estudio</label>
+</div><p></p>
+    <div class="form-floating">
+      <input  class="form-control" type="text" name="Instituto" id="instituto" placeholder  required >
+      <label for="floatingInput">Instituto al acual quiere su traslado -EJEMPLO INSTITUTO SUPERIOR DE ZAMORA</label>
+    </div><p></p>
+    <div class="form-floating">
+        <input  class="form-control" type="text" name="Traslado_Carrera" id="traslado_carrera" placeholder  required >
+        <label for="floatingInput">Traslado de la carrera de - POR EJEMPLO INGENIERIA CIVIL</label>
+      </div><p></p>
+      <div class="form-floating">
+        <input  class="form-control" type="text" name="Con_Plan" id="con_plan" placeholder  required >
+        <label for="floatingInput">Con Plan de Estudio - POR EJEMPLO IELC-2010-211</label>
+    
+      </div><p></p>
+      <div class="form-floating">
+        <input  class="form-control" type="text" name="Debido" id="debido" placeholder  required >
+        <label for="floatingInput">Debido A - DESCRIBE EL MOTIVO</label>
+      </div><p></p>
+   
+    <div class="d-flex justify-content-center align-items-center mt-3 position-relative"> <!-- Agrega las clases para centrar -->
+      <button class="btn btn-primary py-2 ancho-personalizado position-absolute">Generar Constancia</button>
+  </div>
+  </form>
+
+
+</main>
+
+<script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
+
+
+    </body>
+</html>

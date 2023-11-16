@@ -3,15 +3,12 @@
   <head><script src="../assets/js/color-modes.js"></script>
 
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
-    <meta name="generator" content="Hugo 0.118.2">
+   
     <title>ANEXO XXXIII.FORMATO DE LIBERACIÓN DE PROYECTO PARA LA TITULACIÓN INTEGRAL</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/sign-in/">
 
-
+    <script src="../conexiones/ConexionLiberacionResidencia.php"></script>
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
 
@@ -22,70 +19,81 @@
 <body >
 
     <div class="Encabezado">
-       
-                <a>
+                
+      <div>  <a>
            
-        <img class="Logotipo" src="logo.jpg">
-           
-                </a>
-            <h1>ANEXO XXXIII.FORMATO DE LIBERACIÓN DE PROYECTO PARA LA TITULACIÓN INTEGRAL</h1>
+        <img class="Logotipo" src="../img/logo.jpg">
+ 
+      </a></div>
+      <div>
+              
+            <h1 >ANEXO XXXIII.FORMATO DE LIBERACIÓN DE PROYECTO PARA LA TITULACIÓN INTEGRAL</h1>
      </div>
+    </div>
+     <p></p><p></p><p></p>
     
-        
-    
-    <link href="Formulario.css" rel="stylesheet">
+     <link href="../estilos/Formulario.css" rel="stylesheet">
   
     
     <main class="form-signin w-100 m-auto position-relative"> 
-    <form action="" id="Formulario_Solicitud_Liberacion_Recidencia" class="campos_registro" accept-charset="utf-8" method="post">
+    <form action="../conexiones/ConexionLiberacionResidencia.php" id="Formulario_Solicitud_Liberacion_Recidencia" class="campos_registro" accept-charset="utf-8" method="post">
   
     <h1 style="color: #0a0707; font-size: 20px;">Para asegurarnos de que procesemos su solicitud de manera 
         oportuna y precisa, es importante que proporcione información completa y exacta en el formulario.</h1>
-
-    <div class="form-floating">
-      <input  class="form-control" type="text" name="Nombre" id="nombre" placeholder required>
-      <label >Nombre Completo del Alumno</label>
-    </div>
-    <div class="form-floating">
-      <input  class="form-control"  type="number" name="N_Control" id="n_control" placeholder required>
-      <label for="floatingInput">Numero de Control</label>
-    </div>
+        <p></p>
+        <div class="form-floating">
+          <input  class="form-control" type="text" name="Apellido_Paterno" id="apellido_paterno" placeholder required>
+          <label for="floatingInput">Apellido Paterno</label>
+        </div><p></p>
+        <div class="form-floating">
+          <input  class="form-control" type="text" name="Apellido_Materno" id="apellido_materno" placeholder required>
+          <label for="floatingInput">Apellido Materno</label>
+        </div><p></p>
+      <div class="form-floating">
+        <input  class="form-control" type="text" name="Nombre" id="nombre" placeholder required>
+        <label for="floatingInput">Nombre</label>
+      </div><p></p>
+      <div class="form-floating">
+        <input class="form-control" type="number" name="N_Control" id="n_control"  placeholder  required min="0">
+        <label for="n_control">Numero de Control</label>
+    </div><p></p>
     <div class="form-floating">
       <input  class="form-control" type="text" name="Periodo" id="periodo" placeholder required>
-      <label for="floatingInput">Periodo en el que cursaste la residencia</label>
-    </div>
+      <label for="floatingInput">Periodo en el que cursaste la residencia - Ejemplo: Enero - Junio 2023
+      </label>
+    </div><p></p>
     <div class="form-floating">
-      <input class="form-control" type="text" name="Nom_Proyect" id="nom_proyect" placeholder required>
+      <input class="form-control" type="text" name="Nombre_Proyecto" id="nombre_proyecto" placeholder required>
       <label for="floatingInput">Nombre del Proyecto</label>
-    </div>
+    </div><p></p>
     <div class="form-floating">
-      <input  class="form-control" type="text" name="Nom_Empresa" id="nom_empresa" placeholder required>
+      <input  class="form-control" type="text" name="Nombre_Empresa" id="nombre_empresa" placeholder required>
       <label for="floatingInput">Nombre de la Empresa</label>
-    </div>
+    </div><p></p>
     <div class="form-floating">
-      <input  class="form-control"  type="text" name="AsesorInt" id="asesorint" placeholder required>
-      <label for="floatingInput">Nombre del Docente que fue tu asesor interno</label>
-    </div>
+      <input  class="form-control"  type="text" name="Asesor_Interno" id="asesor_interno" placeholder required>
+      <label for="floatingInput">Nombre completo del Docente que fue tu asesor interno</label>
+    </div><p></p>
     <div class="form-floating">
-      <input  class="form-control"  type="text" name="PrimerDoc" id="primerdoc" placeholder required>
+      <input  class="form-control"  type="text" name="Primer_Docente" id="primer_docente" placeholder required>
       <label for="floatingInput">Nombre del primer docente que participo como tu sinodal en la presentación de su residencia</label>
-    </div>
+    </div><p></p>
     <div class="form-floating">
-        <input  class="form-control"  type="text" name="SegunDoc" id="segundoc" placeholder required>
-        <label for="floatingInput">Nombre del segunfo docente que participo como tu sinodal en la presentación de su residencia</label>
-      </div>
+        <input  class="form-control"  type="text" name="Segundo_Docente" id="segundo_docente" placeholder required>
+        <label for="floatingInput">Nombre del segundo docente que participo como tu sinodal en la presentación de su residencia</label>
+      </div><p></p>
       <div class="form-floating">
         <input  class="form-control"  type="number" name="Calificacion" id="calificacion" placeholder required>
         <label for="floatingInput">Calificación que obtuviste</label>
-      </div>
+      </div><p></p>
       <div class="form-floating">
         <input  class="form-control"   type="text" name="Observaciones" id="observaciones" placeholder required>
         <label for="floatingInput">Observación adicional</label>
-      </div>
+      </div><p></p>
       <div class="form-floating">
         <input  class="form-control"  type="file" name="Evidencias" id="evidencias" accept=".pdf, .doc, .docx"  placeholder required>
         <label for="floatingInput">Evidencias de haber acreditado la residencia, carta de liberación, informe final de residencias, kardex, etc</label>
-      </div>
+      </div><p></p>
       <div class="d-flex justify-content-center align-items-center mt-3 position-relative"> <!-- Agrega las clases para centrar -->
         <button class="btn btn-primary py-2 ancho-personalizado position-absolute">Generar Constancia</button>
     </div>
