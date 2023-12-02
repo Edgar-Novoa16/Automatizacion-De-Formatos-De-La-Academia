@@ -10,7 +10,7 @@ require 'Conexion.php';
 
 
 /* Un arreglo de las columnas a mostrar en la tabla */
-$columns = ['N_Control', 'Fecha', 'Apellido_Paterno', 'Apellido_Materno', 'Nombre', 'Calificacion', 'Constancia'];
+$columns = ['N_Control', 'Fecha', 'Apellido_Paterno', 'Apellido_Materno', 'Nombre', 'Calificacion','Estatus', 'Constancia'];
 
 /* Nombre de la tabla */
 $table = "from_liberacion_residencia";
@@ -97,11 +97,21 @@ if ($num_rows > 0) {
         $output['data'] .= '<td>' . $row['Apellido_Materno'] . '</td>';
         $output['data'] .= '<td>' . $row['Nombre'] . '</td>';
         $output['data'] .= '<td>' . $row['Calificacion'] . '</td>';
-        $output['data'] .= '<td><a href="data:application/vnd.openxmlformats-officedocument.wordprocessingml.document;base64,' . base64_encode($row['Constancia']) . '" download="Constancia.docx">Ver Constancia</a></td>';
-        $output['data'] .= "<td><a class='btn btn-danger delete' href='Modificar.php?id=" . $row['N_Control'] . "'>Modificar</a></td>";
-        $output['data'] .= '</tr>';
-    }
-} else {
+        $output['data'] .= '<td>' . $row['Estatus'] . '</td>';
+        $output['data'] .= '<td><a href="data:application/vnd.openxmlformats-officedocument.wordprocessingml.document;base64,' . base64_encode($row['Constancia']) . '" download="Constancia.docx">Ver Constancia</a></td>'; 
+        if ($row['Estatus'] === 'SIN FIRMAR') {
+            $output['data'] .= "<td><a class='btn btn-danger delete' href='../conexiones/ModificarSolicitudResidencia.php?N_Control=" . $row['N_Control'] . "'>Modificar</a></td>";
+            $output['data'] .= "<td><a class='btn btn-danger delete' href='../conexiones/FirmadaLiberacionResidencia.php?N_Control=" . $row['N_Control'] . "'>Firmar</a></td>";
+        } 
+        if ($row['Estatus'] === 'FIRMADA') {
+            $output['data'] .= "<td><a class='btn btn-danger delete' href='../conexiones/SelladaLiberacionResidencia.php?N_Control=" . $row['N_Control'] . "'>Sellada</a></td>";
+        } elseif ($row['Estatus'] == 'COMPLETA') {
+        
+            $output['data'] .= '<tr>';
+        }            
+    } 
+} 
+ else {
     $output['data'] .= '<tr>';
     $output['data'] .= '<td colspan="7">Sin resultados</td>';
     $output['data'] .= '</tr>';

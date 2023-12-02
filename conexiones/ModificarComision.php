@@ -1,5 +1,7 @@
 <?php
 require 'Conexion.php';
+require '../vendor/autoload.php'; // Incluye la autoloader de Composer
+use PhpOffice\PhpWord\TemplateProcessor;
 
 // Verifica si se ha enviado el formulario
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -44,11 +46,63 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             Hora_Salida = '$hora_salida',
             Dia_Regreso = '$dia_regreso',
             Hora_Regreso = '$hora_regreso'
+            
 
             WHERE Folio = $folio";
 
     if ($conn->query($sql) === TRUE) {
-        echo "<script>alert('¡Comision Modificada con Exito!');</script>";
+      $plantilla = '../plantillas/FormatoComision.docx';
+    
+        // Crear un nuevo procesador de plantillas con la plantilla existente
+        $templateProcessor = new TemplateProcessor($plantilla);
+       // Establecer la configuración regional a español (o el idioma que prefieras)
+       setlocale(LC_TIME, 'es_ES.utf8', 'es_ES', 'esp');
+        // Obtener la fecha actual en el formato deseado 
+        $fechaActual = strftime ('%e de %B de %Y');
+
+         
+        
+        // Reemplazar las variables en la plantilla con los datos del formulario
+        $templateProcessor->setValue('Nomina', $nomina);
+        $templateProcessor->setValue('Nombre', $nombre);
+        $templateProcessor->setValue('ApellidoP', $apellido_paterno);
+        $templateProcessor->setValue('ApellidoM', $apellido_materno);
+        $templateProcessor->setValue('Cargo', $cargo);
+        $templateProcessor->setValue('Folio', $folio);
+        $templateProcessor->setValue('Area', $area);
+        $templateProcessor->setValue('Lugar', $lugar);
+        $templateProcessor->setValue('Asunto', $asunto);
+        $templateProcessor->setValue('Transporte', $transporte);
+        $templateProcessor->setValue('Viaticos', $viaticos);
+        $templateProcessor->setValue('Especificacion', $especificacion_viaticos);
+        $templateProcessor->setValue('Obs', $observaciones);
+        $templateProcessor->setValue('Dia_Salida', $dia_salida);
+        $templateProcessor->setValue('Hora_Salida', $hora_salida);
+        $templateProcessor->setValue('Dia_Regreso', $dia_regreso);
+        $templateProcessor->setValue('Hora_Regreso', $hora_regreso);
+        $templateProcessor->setValue('Fecha', $fechaActual);
+        
+
+// Guardar el documento temporalmente
+$tempFilePath = "{$apellido_paterno}_{$apellido_materno}_{$nombre}_{$nomina}_COMISION.docx";
+
+$templateProcessor->saveAs($tempFilePath);
+
+// Leer el contenido del archivo
+$fileContent = file_get_contents($tempFilePath);
+
+/// Eliminar el archivo temporal después de obtener su contenido
+unlink($tempFilePath);
+
+// Actualizar el campo "Comision" en la tabla "from_comisiones"
+$sqlUpdate = "UPDATE from_comisiones SET Comision = ? WHERE Folio = ?";
+$stmt = $conn->prepare($sqlUpdate);
+$stmt->bind_param("si", $fileContent, $folio);
+$stmt->execute();
+
+
+        echo "<script>alert('¡Comision Modificada con Exito!');
+        window.location.href = '../conexiones/ConsultarComisiones.php';</script>";
     } else {
         echo "Error al actualizar los datos: " . $conn->error;
     }
@@ -104,16 +158,13 @@ if (isset($_GET['Folio'])) {
         $hora_salida = $fila['Hora_Salida'];
         $dia_regreso = $fila['Dia_Regreso'];
         $hora_regreso = $fila['Hora_Regreso'];
-        // ... asigna otros campos existentes a variables similares
+
     } else {
         echo "No se encontraron datos para el Folio proporcionado.";
     }
 }
 
 
-
-
-// Resto de tu código...
 
 ?>
 
@@ -126,9 +177,9 @@ if (isset($_GET['Folio'])) {
     <link rel="stylesheet" href="../estilos/Style2.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
     <link rel="stylesheet" href="../estilos/Formulario.css">
-	<script src="../conexiones/ConsultarComite.php"></script>
-  <script src="../conexiones/CargaComite.php"></script>
-  <script src="../conexiones/Consultas/TablaComite.php"></script>
+	<script src="../conexiones/ConsultarComisiones.php"></script>
+  <script src="../conexiones/CargaComisiones.php"></script>
+
 
     <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
     <title>Modificar Comision</title>
@@ -172,7 +223,7 @@ if (isset($_GET['Folio'])) {
     </h1>
     <p></p>
     <div class="form-floating">
-      <input  class="form-control" type="text" name="Folio" id="folio" placeholder required  value="<?php echo $folio; ?>">
+      <input  class="form-control" type="text" name="Folio" id="folio" placeholder required  value="<?php echo $folio; ?>" readonly>
       <label for="floatingInput">Folio</label>
     </div><p></p>
     <div class="form-floating">

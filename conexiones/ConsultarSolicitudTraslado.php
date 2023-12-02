@@ -7,7 +7,7 @@
     <meta name="description" content="Buscar datos en tiempo real con PHP, MySQL y AJAX">
     <meta name="author" content="Marco Robles">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CONSULTAR ANEXO XLII. SOLICITUD DE TRASLADO</title>
+    <title>Consultar: ANEXO XLII. Solicitud de Traslado</title>
 
     <!-- Bootstrap core CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
@@ -37,7 +37,7 @@
     </header>
     
         <div class="container py-4 text-center">
-            <h2>ANEXO XLII. SOLICITUD DE TRASLADO</h2>
+            <h2>ANEXO XLII. Solicitud de Traslado</h2>
 
             <div class="row g-4">
 
@@ -78,6 +78,7 @@
                             <th class="sort asc">Apellido Materno</th>
                             <th class="sort asc">Nombre</th>
                             <th class="sort asc">Semestre</th>
+                            <th class="sort asc">Estatus</th>
                             <th class="sort asc">Solicitud</th>
 
                             <th></th>

@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CONSULTAR: ANEXO XLII.COMISIONES</title>
+    <title>Consultar: ANEXO XLII.Comisiones</title>
 
     <!-- Bootstrap core CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
@@ -36,7 +36,7 @@
     </header>
     
         <div class="container py-4 text-center">
-            <h2>ANEXO XLII.COMISIONES</h2>
+            <h2>ANEXO XLII.Comisiones</h2>
 
             <div class="row g-4">
 
@@ -78,10 +78,11 @@
                             <th class="sort asc">Cargo</th>
                             <th class="sort asc">Area</th>
                             <th class="sort asc">Folio</th>
+                            <th class="sort asc">Estatus</th>
                             <th class="sort asc">Comision</th>
                             
-                            <th>
-                            <a href="../contenido/FormularioComisionesDocentes.html" class="btn btn-primary py-2">Agregar Comisión</a>
+                            <th >
+                            <a  href="../contenido/FormularioComisionesDocentes.php" class="btn btn-primary py-2">Agregar </a>
                             </th>
 
                             <th></th>

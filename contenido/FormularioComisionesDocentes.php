@@ -1,3 +1,44 @@
+
+<?php
+require '../conexiones/Conexion.php';
+
+// Recupera los datos existentes para llenar el formulario
+if (isset($_GET['Nomina'])) {
+  $folio = $_GET['Nomina']; // Asegúrate de pasar el ID correctamente, por ejemplo, desde la URL
+
+  // Consulta para obtener los datos existentes
+  $$sql = "SELECT * FROM docentes WHERE Nomina = '$nomina'";
+  $resultado = $conn->query($sql);
+
+  if ($resultado->num_rows > 0) {
+      $fila = $resultado->fetch_assoc();
+
+      // Asigna los valores a variables para utilizar en el formulario
+
+      $apellido_paterno = $fila['Apellido_Paterno'];
+      $apellido_materno = $fila['Apellido_Materno'];
+      $nombre = $fila['Nombre'];
+      $nomina = $fila['Nomina'];
+      $cargo = $fila['Cargo'];
+      $area = $fila['Area'];
+      
+  } else {
+      echo "No se encontraron datos para la nomina proporcionado.";
+  }
+}
+$apellido_paterno = '';
+$apellido_materno = '';
+$nombre = "";
+$nomina ="";
+$cargo ="";
+$area = "";
+// Cerrar la conexión a la base de datos
+$conn->close();
+?>
+
+
+
+
 <!doctype html>
 <html lang="en" data-bs-theme="auto">
   <head><script src="../assets/js/color-modes.js"></script>
@@ -14,6 +55,8 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
 
 <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
+
+
 
 </head>
 
@@ -43,90 +86,36 @@
         Para asegurarnos de que procesemos su solicitud de manera oportuna y precisa, es importante que proporcione información completa y exacta en el formulario.
     </h1>
     <p></p>
-
     <div class="form-floating">
-      <input  class="form-control" type="text" name="Apellido_Paterno" id="apellido_paterno" placeholder required>
+      <input class="form-control" type="text" name="Nomina" id="nomina" placeholder required  value="<?php echo $nomina; ?>">
+      <label for="floatingInput">Nomina</label>
+  </div> <p></p>
+    <div class="form-floating">
+      <input  class="form-control" type="text" name="Apellido_Paterno" id="apellido_paterno" placeholder required  value="<?php echo $apellido_paterno; ?>">
       <label for="floatingInput">Apellido Paterno</label>
     </div><p></p>
     <div class="form-floating">
-      <input  class="form-control" type="text" name="Apellido_Materno" id="apellido_materno" placeholder required>
+      <input  class="form-control" type="text" name="Apellido_Materno" id="apellido_materno" placeholder required  value="<?php echo $apellido_materno; ?>">
       <label for="floati<p></p>ngInput">Apellido Materno</label>
     </div>
   <div class="form-floating">
-    <input  class="form-control" type="text" name="Nombre" id="nombre" placeholder required>
+    <input  class="form-control" type="text" name="Nombre" id="nombre" placeholder required value="<?php echo $nombre; ?>">
     <label for="floatingInput">Nombre</label>
   </div><p></p>
     <div class="form-floating">
-      <select class="form-control" name="Cargo" id="cargo" placeholder required>
-          <option value="Profesor Asociado A">Profesor Asociado "A"</option>
-          <option value="Profesor Asociado B">Profesor Asociado"B"</option>
-          <option value="Profesor Asociado C">Profesor Asociado "C"</option>
-          <option value="Profesor de Asignatura A">Profesor de Asignatura "A"</option>
-          <option value="Profesor de Asignatura B">Profesor de Asignatura "B"</option>
-          <option value="Profesor de Asignatura C">Profesor de Asignatura "C"</option>
-          <option value="Coordinador de promocion">Coordinador de promocion</option>
-          <option value="Profesor Titular A">Profesor Titular A</option>
-          <option value="Profesor Titular B">Profesor Titular B</option>
-          <option value="Profesor Titular C">Profesor Titular C</option>
-          <option value="Jefe de carrera">Jefe de carrera</option>
-          <option value="Laborista">Laborista</option>
-          <option value="Administrativo">Administrativo</option>
-          <option value="Otro">Otro</option>
-          </select>
+      <input class="form-control" name="Cargo" id="cargo" placeholder required  value="<?php echo $cargo; ?>">
+
       <label for="cargo">Cargo</label>
   </div>
-  <input type="text" class="form-control" name="OtroCargo" id="otrocargo" style="display:none;" placeholder="Escribe el Cargo">
-  <script>
-    var cargoSelect = document.getElementById("cargo");
-    var otrocargoInput = document.getElementById("otrocargo");
-
-    cargoSelect.addEventListener("change", function() {
-        if (this.value === "Otro") {
-            otrocargoInput.style.display = "block";
-            otrocargoInput.setAttribute("required", "true"); // Agregar el atributo 'required' si es necesario
-        } else {
-            otrocargoInput.style.display = "none";
-            otrocargoInput.removeAttribute("required"); // Remover el atributo 'required'
-            otrocargoInput.value = ""; // Limpiar el valor del campo de texto
-        }
-    });
-</script>
+ 
 <p></p>
 
-    <div class="form-floating">
-      <input class="form-control" type="text" name="Nomina" id="nomina" placeholder required >
-      <label for="floatingInput">Nomina</label>
-  </div> <p></p>
+    
   <div class="form-floating">
-    <select class="form-control" name="Area" id="area" placeholder required>
-        <option value="Ingenieria en Sistemas Computacionales">Ingenieria en Sistemas Computacionales</option>
-        <option value="Ingeniería Industrial">Ingeniería Industrial</option>
-        <option value="Ingenieria Electronica">Ingenieria Electronica</option>
-        <option value="Ingeniería Electromecánica">Ingeniería Electromecánica</option>
-        <option value="Ingeniería Civil">Ingeniería Civil</option>
-        <option value="Gastronomia">Gastronomia</option>
-        <option value="Gestión Empresarial">Gestión Empresarial</option>
-        <option value="Vinculacion">Vinculacion</option>
-        <option value="Otro">Otro</option>
-    </select>
+    <input class="form-control" name="Area" id="area" placeholder required  value="<?php echo $area; ?>">
+        
     <label for="area">Area</label>
 </div><p></p>
-<input type="text" class="form-control" name="OtroArea" id="otroarea" style="display:none;" placeholder="Escribe el Area">
-<script>
-  var areaSelect = document.getElementById("area");
-  var otroareaInput = document.getElementById("otroarea");
-
-  areaSelect.addEventListener("change", function() {
-      if (this.value === "Otro") {
-          otroareaInput.style.display = "block";
-          otroareaInput.setAttribute("required", "true"); // Agregar el atributo 'required' si es necesario
-      } else {
-          otroareaInput.style.display = "none";
-          otroareaInput.removeAttribute("required"); // Remover el atributo 'required'
-          otroareaInput.value = ""; // Limpiar el valor del campo de texto
-      }
-  });
-</script>
 <p><p></p></p>
     <div class="form-floating">
       <input class="form-control" type="text" name="Lugar" id="lugar"  placeholder  required>

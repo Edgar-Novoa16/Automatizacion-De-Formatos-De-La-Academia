@@ -1,3 +1,6 @@
+
+
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -9,19 +12,29 @@
     <link rel="stylesheet" href="../estilos/Formulario.css">
 	<script src="../conexiones/ConsultarComite.php"></script>
   <script src="../conexiones/CargaComite.php"></script>
-  <script src="../conexiones/Consultas/TablaComite.php"></script>
+
 
     <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
     <title>Menú</title>
 </head>
 
+<style>
+  body {
+    background-image: url("../img/fondo.png");
+    height: 100vh;
+    background-size: 1280px 640px; /* Ancho: 200px, Alto: 150px */
+    min-height: 20rem;
+    background-repeat: no-repeat; /* Evita la repetición de la imagen */
+  }
+</style>
 
 <body >
+ 
+
 <header>
   <nav class="navbar navbar-expand-lg navbar-light" style="background-color: rgb(48, 16, 107);">
     <!-- Contenido de la barra de navegación -->
     <div class="container-fluid">
-      <a class="navbar-brand" href="../Principal.html" style="color: white;">Atras</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -31,6 +44,7 @@
           <a class="nav-link" href="../conexiones/ConsultarLiberacionResidencia.php" onclick="cargarContenido('solicitudResidencia')" style="color: white;">Solicitud Liberacion Residencia</a>
           <a class="nav-link" href="../conexiones/ConsultarSolicitudTraslado.php" onclick="cargarContenido('solicitudTraslado')" style="color: white;">Solicitud Traslado</a>
           <a class="nav-link" href="../conexiones/ConsultarComisiones.php" onclick="cargarContenido('comisionesDocentes')" style="color: white;">Comisiones Docentes</a>
+          <label for="usuario">Usuario: <?php echo $usuario; ?></label>
         </div>
       </div>
     </div>

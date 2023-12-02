@@ -1,16 +1,11 @@
 <?php
-/*
-* Script: Cargar datos de lado del servidor con PHP y MySQL
-* Autor: Marco Robles
-* Team: Códigos de Programación
-*/
 
 
 require 'Conexion.php';
 
 
-/* Un arreglo de las columnas a mostrar en la tabla */
-$columns = ['Nomina', 'Apellido_Paterno', 'Apellido_Materno', 'Nombre', 'Cargo','Area', 'Folio', 'Comision'];
+/*  arreglo de las columnas a mostrar en la tabla */
+$columns = ['Nomina', 'Apellido_Paterno', 'Apellido_Materno', 'Nombre', 'Cargo','Area', 'Folio','Estatus', 'Comision'];
 
 /* Nombre de la tabla */
 $table = "from_comisiones";
@@ -98,10 +93,20 @@ if ($num_rows > 0) {
         $output['data'] .= '<td>' . $row['Cargo'] . '</td>';
         $output['data'] .= '<td>' . $row['Area'] . '</td>';
         $output['data'] .= '<td>' . $row['Folio'] . '</td>';
+        $output['data'] .= '<td>' . $row['Estatus'] . '</td>';
         $output['data'] .= '<td><a href="data:application/vnd.openxmlformats-officedocument.wordprocessingml.document;base64,' . base64_encode($row['Comision']) . '" download="Comision.docx">Ver Comision</a></td>';
-        $output['data'] .= "<td><a class='btn btn-danger delete' href='../conexiones/ModificarComision.php?Folio=" . $row['Folio'] . "'>Modificar</a></td>";
-        $output['data'] .= '</tr>';
-    }
+          
+        if ($row['Estatus'] === 'SIN FIRMAR') {
+            $output['data'] .= "<td style='width: 300px;'><a class='btn btn-danger delete' href='../conexiones/ModificarComision.php?Folio=" . $row['Folio'] . "'>Modificar</a></td>";
+            $output['data'] .= "<td><a class='btn btn-danger delete' href='../conexiones/FirmadaComision.php?Folio=" . $row['Folio'] . "'>Firmar</a></td>";       
+         }
+        if ($row['Estatus'] === 'FIRMADA') {
+            $output['data'] .= "<td><a class='btn btn-danger delete' href='../conexiones/SelladaComision.php?Folio=" . $row['Folio'] . "'>Sellada</a></td>";
+        } elseif ($row['Estatus'] == 'COMPLETA') {
+        
+            $output['data'] .= '<tr>';
+        }
+   }
 } else {
     $output['data'] .= '<tr>';
     $output['data'] .= '<td colspan="7">Sin resultados</td>';

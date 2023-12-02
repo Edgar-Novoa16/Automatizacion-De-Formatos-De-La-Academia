@@ -10,12 +10,12 @@ require 'Conexion.php';
 
 
 /* Un arreglo de las columnas a mostrar en la tabla */
-$columns = ['N_Control', 'Fecha', 'Apellido_Paterno', 'Apellido_Materno', 'Nombre', 'Semestre', 'Constancia'];
+$columns = ['Id','N_Control', 'Fecha', 'Apellido_Paterno', 'Apellido_Materno', 'Nombre', 'Semestre','Estatus', 'Constancia'];
 
 /* Nombre de la tabla */
 $table = "from_carta_comite";
 
-$id = 'N_Control';
+$id = 'Id';
 
 $campo = isset($_POST['campo']) ? $conn->real_escape_string($_POST['campo']) : null;
 
@@ -91,35 +91,48 @@ $output['paginacion'] = '';
 if ($num_rows > 0) {
     while ($row = $resultado->fetch_assoc()) {
         $output['data'] .= '<tr>';
+        $output['data'] .= '<td>' . $row['Id'] . '</td>';
         $output['data'] .= '<td>' . $row['N_Control'] . '</td>';
         $output['data'] .= '<td>' . date('Y', strtotime($row['Fecha'])).'</td>'; // Obtener solo el año
         $output['data'] .= '<td>' . $row['Apellido_Paterno'] . '</td>';
         $output['data'] .= '<td>' . $row['Apellido_Materno'] . '</td>';
         $output['data'] .= '<td>' . $row['Nombre'] . '</td>';
         $output['data'] .= '<td>' . $row['Semestre'] . '</td>';
+        $output['data'] .= '<td>' . $row['Estatus'] . '</td>';
         $output['data'] .= '<td><a href="data:application/vnd.openxmlformats-officedocument.wordprocessingml.document;base64,' . base64_encode($row['Constancia']) . '" download="Constancia.docx">Ver Constancia</a></td>';
-        $output['data'] .= "<td><a class='btn btn-danger delete' href='../conexiones/ModificarComision.php?Folio=" . $row['Folio'] . "'>Modificar</a></td>";
-        $output['data'] .= '</tr>';
-    }
-} else {
-    $output['data'] .= '<tr>';
-    $output['data'] .= '<td colspan="7">Sin resultados</td>';
-    $output['data'] .= '</tr>';
-}
+            
+            if ($row['Estatus'] === 'SIN FIRMAR') {
+                $output['data'] .= "<td><a class='btn btn-danger delete' href='../conexiones/ModificarComite.php?Id=" . $row['Id'] . "'>Modificar</a></td>";
+                $output['data'] .= "<td><a class='btn btn-danger delete' href='../conexiones/FirmadaComite.php?Id=" . $row['Id'] . "'>Firmar</a></td>";     
+             }
+            if ($row['Estatus'] === 'FIRMADA') {
+                $output['data'] .= "<td><a class='btn btn-danger delete' href='../conexiones/SelladaComision.php?Id=" . $row['Id'] . "'>Sellada</a></td>";
+            } elseif ($row['Estatus'] == 'COMPLETA') {
+            
+                $output['data'] .= '<tr>';
+            }
+        } 
+    
 
-if ($output['totalRegistros'] > 0) {
-    $totalPaginas = ceil($output['totalRegistros'] / $limit);
+        } else {
+            $output['data'] .= '<tr>';
+            $output['data'] .= '<td colspan="7">Sin resultados</td>';
+            $output['data'] .= '</tr>';
+            }
 
-    $output['paginacion'] .= '<nav>';
-    $output['paginacion'] .= '<ul class="pagination">';
+        if ($output['totalRegistros'] > 0) {
+            $totalPaginas = ceil($output['totalRegistros'] / $limit);
 
-    $numeroInicio = 1;
+             $output['paginacion'] .= '<nav>';
+             $output['paginacion'] .= '<ul class="pagination">';
 
-    if(($pagina - 4) > 1){
+             $numeroInicio = 1;
+
+        if(($pagina - 4) > 1){
         $numeroInicio = $pagina - 4;
-    }
+        }
 
-    $numeroFin = $numeroInicio + 9;
+         $numeroFin = $numeroInicio + 9;
 
     if($numeroFin > $totalPaginas){
         $numeroFin = $totalPaginas;

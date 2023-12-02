@@ -85,7 +85,7 @@ $templateProcessor->saveAs($tempFilePath);
  if ($stmt->execute()) {
     echo "<script>
     window.onload = function() {
-        alert('¡Carta generada y enviada al correo que compartiste con éxito!, Favor de firmarla y subirla en el apartado de formularios');
+        alert('¡Carta generada y enviada al correo que compartiste con éxito!, Favor de firmarla y mandarla al jefe de carrera');
         window.location.href = '../contenido/FormularioCartaComite.html';
     }
   </script>";

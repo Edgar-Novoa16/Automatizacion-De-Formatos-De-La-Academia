@@ -124,7 +124,8 @@ function enviarCorreo($tempFilePath) {
 
         unlink($tempFilePath);
 
-        $GLOBALS['mensajeexito'] = "¡Comisión generada y enviada a su jefe de carrera con éxito!";
+        echo "<script>alert('¡Comisión generada y enviada a su jefe de carrera con éxito!');
+        window.location.href = '../contenido/FormularioComisionesDocentes.html';</script>";
     } catch (Exception $e) {
         echo 'Error al enviar el correo: ' . $mail->ErrorInfo;
     }
@@ -319,8 +320,9 @@ $sql = "INSERT INTO from_comisiones (Nomina, Nombre, Apellido_Paterno, Apellido_
        unlink($tempFilePath);
    
        // Mostrar el mensaje de éxito
-       $mensajeexito = "¡Comisión generada y enviada a su jefe de carrera con éxito!";
-   } catch (Exception $e) {
+       echo "<script>alert('¡Comisión generada y enviada a su jefe de carrera con éxito!');
+       window.location.href = '../contenido/FormularioComisionesDocentes.html';</script>";
+       } catch (Exception $e) {
        echo 'Error al enviar el correo: ' . $mail->ErrorInfo;
    }
    
@@ -353,3 +355,11 @@ $sql = "INSERT INTO from_comisiones (Nomina, Nombre, Apellido_Paterno, Apellido_
 </html>
 
 
+if ($row['Estatus'] === 'FIRMADA') {
+            $output['data'] .= "<td><a class='btn btn-danger delete' href='../conexiones/SelladaComision.php?Folio=" . $row['Folio'] . "'>Sellada</a></td>";
+        } elseif ($row['Estatus'] !== 'COMPLETA') {
+            $output['data'] .= "<td style='width: 300px;'><a class='btn btn-danger delete' href='../conexiones/ModificarComision.php?Folio=" . $row['Folio'] . "'>Modificar</a></td>";
+            $output['data'] .= "<td><a class='btn btn-danger delete' href='../conexiones/FirmadaComision.php?Folio=" . $row['Folio'] . "'>Firmar</a></td>";
+            $output['data'] .= "<td><a class='btn btn-danger delete' href='../conexiones/SelladaComision.php?Folio=" . $row['Folio'] . "'>Sellada</a></td>";
+        }
+    

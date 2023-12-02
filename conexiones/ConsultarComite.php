@@ -8,7 +8,7 @@
     <meta name="description" content="Buscar datos en tiempo real con PHP, MySQL y AJAX">
     <meta name="author" content="Marco Robles">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ANEXO XLII. SOLICITUD DEL ESTUDIANTE PARA EL ANÁLISIS DEL COMITÉ ACADÉMICO</title>
+    <title>Consultar: ANEXO XLII. Solicitud del Estudiante para el Analisis del Comite Academico </title>
 
     <!-- Bootstrap core CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
@@ -38,7 +38,7 @@
     </header>
     
         <div class="container py-4 text-center">
-            <h2>ANEXO XLII. SOLICITUD DEL ESTUDIANTE PARA EL ANÁLISIS DEL COMITÉ ACADÉMICO</h2>
+            <h2>ANEXO XLII. Solicitud del Estudiante para el Analisis del Comite Academico</h2>
 
             <div class="row g-4">
 
@@ -73,12 +73,14 @@
                 <div class="col">
                     <table class="table table-striped table-bordered table-hover">
                         <thead>
+                        <th class="sort asc">Id</th>
                             <th class="sort asc"># Control</th>
                             <th class="sort asc">Año</th>
                             <th class="sort asc">Apellido Paterno</th>
                             <th class="sort asc">Apellido Materno</th>
                             <th class="sort asc">Nombre</th>
                             <th class="sort asc">Semestre</th>
+                            <th class="sort asc">Estatus</th>
                             <th class="sort asc">Constancia</th>
 
                             <th></th>
