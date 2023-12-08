@@ -1,7 +1,7 @@
 <?php
 require 'Conexion.php';
 require '../vendor/autoload.php'; // Incluye la autoloader de Composer
-
+date_default_timezone_set('America/Mexico_City');
 
 // Verifica si se ha enviado el formulario
 if ($_SERVER["REQUEST_METHOD"] == "POST") {

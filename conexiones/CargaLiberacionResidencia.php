@@ -104,7 +104,7 @@ if ($num_rows > 0) {
             $output['data'] .= "<td><a class='btn btn-danger delete' href='../conexiones/FirmadaLiberacionResidencia.php?N_Control=" . $row['N_Control'] . "'>Firmar</a></td>";
         } 
         if ($row['Estatus'] === 'FIRMADA') {
-            $output['data'] .= "<td><a class='btn btn-danger delete' href='../conexiones/SelladaLiberacionResidencia.php?N_Control=" . $row['N_Control'] . "'>Sellada</a></td>";
+            $output['data'] .= "<td><a class='btn btn-danger delete' href='../conexiones/SelladoLiberacionResidencia.php?N_Control=" . $row['N_Control'] . "'>Sellada</a></td>";
         } elseif ($row['Estatus'] == 'COMPLETA') {
         
             $output['data'] .= '<tr>';

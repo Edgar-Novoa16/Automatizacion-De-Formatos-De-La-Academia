@@ -44,7 +44,7 @@
           <a class="nav-link" href="../conexiones/ConsultarLiberacionResidencia.php" onclick="cargarContenido('solicitudResidencia')" style="color: white;">Solicitud Liberacion Residencia</a>
           <a class="nav-link" href="../conexiones/ConsultarSolicitudTraslado.php" onclick="cargarContenido('solicitudTraslado')" style="color: white;">Solicitud Traslado</a>
           <a class="nav-link" href="../conexiones/ConsultarComisiones.php" onclick="cargarContenido('comisionesDocentes')" style="color: white;">Comisiones Docentes</a>
-          <label for="usuario">Usuario: <?php echo $usuario; ?></label>
+          
         </div>
       </div>
     </div>

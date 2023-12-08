@@ -28,8 +28,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Verificar si se encontraron resultados
     if ($result->num_rows > 0) {
         // Usuario encontrado y contraseña correcta, redirigir a la página deseada
-        header("Location: ../contenido/Consultar.php");
-        exit();
+        header("Location: ../contenido/Consultar.php?Usuario=" . $usuario . ""); exit();
     } else {
         // Usuario no encontrado o contraseña incorrecta, mostrar mensaje de error
         echo "<script>alert('Usuario o contraseña incorrecta.');</script>";
@@ -108,7 +107,6 @@ $conn->close();
 <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
 
 
-<script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
 
 
     </body>

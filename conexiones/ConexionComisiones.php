@@ -142,7 +142,7 @@ $sql = "INSERT INTO from_comisiones (Nomina, Nombre, Apellido_Paterno, Apellido_
    
        // Mostrar el mensaje de éxito
        echo "<script>alert('¡Comisión generada y enviada a su jefe de carrera con éxito!');
-       window.location.href = '../contenido/FormularioComisionesDocentes.html';</script>";
+       window.location.href = '../contenido/FormularioComisionesDocentes.php';</script>";
        } catch (Exception $e) {
        echo 'Error al enviar el correo: ' . $mail->ErrorInfo;
    }

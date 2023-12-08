@@ -2,7 +2,7 @@
 require 'Conexion.php';
 require '../vendor/autoload.php'; // Incluye la autoloader de Composer
 use PhpOffice\PhpWord\TemplateProcessor;
-
+date_default_timezone_set('America/Mexico_City');
 // Verifica si se ha enviado el formulario
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     
@@ -145,9 +145,9 @@ if (isset($_GET['N_Control'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../estilos/Style2.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
-    <link rel="stylesheet" href="../estilos/Formulario.css">
+  
 	
+    <link href="../estilos/Formulario.css" rel="stylesheet">
 
     <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
     <title>Modificar Solicitud</title>

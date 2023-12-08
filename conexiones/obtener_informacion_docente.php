@@ -1,38 +1,29 @@
 <?php
-require 'Conexion.php';
+	require 'Conexion.php';
 
-// Obtener la nómina del formulario
-$nomina = $_POST['Nomina'];
+	 
+	 	if(isset($_POST['buscar']))
+    { 
+    	$nomina = $_POST['Nomina'];
+    	$valores = array();
+    	$valores['existe'] = "0";
 
-// Consulta SQL para obtener la información del profesor con la nómina proporcionada
-$sql = "SELECT * FROM docentes WHERE Nomina = '$nomina'";
-$result = $conn->query($sql);
+    	//CONSULTAR
+		  $resultados = mysqli_query($conn,"SELECT * FROM docentes WHERE Nomina = '$nomina'");
+		  while($consulta = mysqli_fetch_array($resultados))
+		  {
+		  	$valores['existe'] = "1"; //Esta variable no la usamos en el vídeo (se me olvido, lo siento xD). Aqui la uso en la linea 97 de registro.php
+		  	$valores['apellido_paterno'] = $consulta['Apellido_Paterno'];
+		  	$valores['apellido_materno'] = $consulta['Apellido_Materno'];
+            $valores['nombre'] = $consulta['Nombre'];
+		  	$valores['cargo'] = $consulta['Cargo'];
+		  	$valores['area'] = $consulta['Area'];				    
+		  }
+		  sleep(1);
+		  $valores = json_encode($valores);
+			echo $valores;
+    }
 
-
-
-if ($result->num_rows > 0) {
-    // Obtener la información del docente
-    $row = $result->fetch_assoc();
-    $apellido_paterno = $row['Apellido_Paterno'];
-    $apellido_materno = $row['Apellido_Materno'];
-    $nombre = $row['Nombre'];
-    $cargo = $row['Cargo'];
-    $area = $row['Area'];
-
-    $apellido_paterno = '';
-    $apellido_materno = '';
-    $nombre = "";
-    $nomina ="";
-    $cargo ="";
-    $area = "";
-
-    // Enviar la respuesta como JSON
-    echo json_encode(array('success' => true, 'data' => $data));
-} else {
-    // Enviar un mensaje de error si no se encontró información para la nómina proporcionada
-    echo json_encode(array('success' => false, 'message' => 'No se encontró información para la nómina proporcionada.'));
-}
-
-// Cerrar la conexión a la base de datos
-$conn->close();
+   
 ?>
+

@@ -2,7 +2,7 @@
 require 'Conexion.php';
 require '../vendor/autoload.php'; // Incluye la autoloader de Composer
 use PhpOffice\PhpWord\TemplateProcessor;
-
+date_default_timezone_set('America/Mexico_City');
 // Verifica si se ha enviado el formulario
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     
@@ -180,6 +180,7 @@ if (isset($_GET['Folio'])) {
 	<script src="../conexiones/ConsultarComisiones.php"></script>
   <script src="../conexiones/CargaComisiones.php"></script>
 
+  <link href="../estilos/Formulario.css" rel="stylesheet">
 
     <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
     <title>Modificar Comision</title>
@@ -227,28 +228,28 @@ if (isset($_GET['Folio'])) {
       <label for="floatingInput">Folio</label>
     </div><p></p>
     <div class="form-floating">
-      <input  class="form-control" type="text" name="Apellido_Paterno" id="apellido_paterno" placeholder required  value="<?php echo $apellido_paterno; ?>">
+      <input  class="form-control" type="text" name="Apellido_Paterno" id="apellido_paterno" placeholder required  value="<?php echo $apellido_paterno; ?>" readonly>
       <label for="floatingInput">Apellido Paterno</label>
     </div><p></p>
     <div class="form-floating">
-      <input  class="form-control" type="text" name="Apellido_Materno" id="apellido_materno" placeholder required  value="<?php echo $apellido_materno; ?>">
+      <input  class="form-control" type="text" name="Apellido_Materno" id="apellido_materno" placeholder required  value="<?php echo $apellido_materno; ?>" readonly>
       <label for="floati<p></p>ngInput">Apellido Materno</label>
     </div>
   <div class="form-floating">
-    <input  class="form-control" type="text" name="Nombre" id="nombre" placeholder required  value="<?php echo $nombre; ?>">
+    <input  class="form-control" type="text" name="Nombre" id="nombre" placeholder required  value="<?php echo $nombre; ?>" readonly>
     <label for="floatingInput">Nombre</label>
   </div><p></p>
     <div class="form-floating">
-      <input class="form-control" name="Cargo" id="cargo" placeholder required  value="<?php echo $cargo; ?>">
+      <input class="form-control" name="Cargo" id="cargo" placeholder required  value="<?php echo $cargo; ?>" readonly>
       <label for="cargo">Cargo</label>
   </div>
   
     <div class="form-floating">
-      <input class="form-control" type="text" name="Nomina" id="nomina" placeholder required  value="<?php echo $nomina; ?>">
+      <input class="form-control" type="text" name="Nomina" id="nomina" placeholder required  value="<?php echo $nomina; ?>" readonly>
       <label for="floatingInput">Nomina</label>
   </div> <p></p>
   <div class="form-floating">
-    <input class="form-control" name="Area" id="area" placeholder required  value="<?php echo $area; ?>">
+    <input class="form-control" name="Area" id="area" placeholder required  value="<?php echo $area; ?>" readonly>
     <label for="area">Area</label>
 </div><p></p>
 <input type="text" class="form-control" name="OtroArea" id="otroarea" style="display:none;" placeholder="Escribe el Area" value="<?php echo $otroarea; ?>">
